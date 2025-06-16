@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Add Transaction</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Add New Transaction</h2>
+    <form id="entry-form">
+      <input type="hidden" id="type">
+      <label>Date: <input type="date" id="date" required></label>
+      <label>Amount: <input type="number" id="amount" required></label>
+      <label>Medium/Product: <input type="text" id="medium"></label>
+      <label>Remarks: <input type="text" id="remarks"></label>
+      <div class="button-group">
+        <button type="submit">Add Transaction</button>
+        <button type="button" onclick="window.location.href='index.html'">Cancel</button>
+      </div>
+    </form>
+  </div>
+  <script src="form.js"></script>
+</body>
+</html> 
