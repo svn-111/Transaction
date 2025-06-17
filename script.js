@@ -46,22 +46,36 @@ function createTransactionElement(transaction) {
   div.innerHTML = `
     <div class="transaction-info">
       <div class="info-row">
-        <span class="info-label">Date:</span>
+        <span class="info-label">Date | তারিখ:</span>
         <span class="info-value">${date}</span>
       </div>
       <div class="info-row">
-        <span class="info-label">Amount:</span>
+        <span class="info-label">Amount | পরিমাণ:</span>
         <span class="info-value">${amount}/=</span>
       </div>
-      ${transaction.medium ? `
+      ${transaction.type === 'credit' ? `
+        ${transaction.transactionMedium ? `
+          <div class="info-row">
+            <span class="info-label">Transaction Medium | লেনদেনের মাধ্যম:</span>
+            <span class="info-value">${transaction.transactionMedium}</span>
+          </div>
+        ` : ''}
+        ${transaction.bankName ? `
+          <div class="info-row">
+            <span class="info-label">Bank Name | ব্যাংকের নাম:</span>
+            <span class="info-value">${transaction.bankName}</span>
+          </div>
+        ` : ''}
+      ` : ''}
+      ${transaction.type === 'debit' && transaction.productCount ? `
         <div class="info-row">
-          <span class="info-label">Medium:</span>
-          <span class="info-value">${transaction.medium}</span>
+          <span class="info-label">Product Count | পণ্যের সংখ্যা:</span>
+          <span class="info-value">${transaction.productCount}</span>
         </div>
       ` : ''}
       ${transaction.remarks ? `
         <div class="info-row">
-          <span class="info-label">Remarks:</span>
+          <span class="info-label">Remarks | মন্তব্য:</span>
           <span class="info-value">${transaction.remarks}</span>
         </div>
       ` : ''}
